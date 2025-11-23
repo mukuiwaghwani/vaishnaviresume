@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vaishnavi Sahu | Finance & Taxation Professional</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1d4ed8;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --accent: #3b82f6;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: var(--primary); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    html { scroll-behavior: smooth; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; text-align: center;
+    }
+    .hero img {
+      width: 240px; height: 240px; border-radius: 50%; border: 8px solid rgba(255,255,255,0.2);
+      object-fit: cover; box-shadow: 0 20px 50px rgba(0,0,0,0.4); margin-bottom: 1.5rem;
+    }
+    .hero h1 { font-size: 3.8rem; font-weight: 700; }
+    .hero p { font-size: 1.4rem; opacity: 0.95; max-width: 700px; margin: 1.5rem auto; }
+    .btn {
+      display: inline-block; background: white; color: var(--primary); padding: 1rem 2.5rem;
+      border-radius: 50px; font-weight: 600; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: all 0.4s ease;
+    }
+    .btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+    section { padding: 100px 0; }
+    .section-title {
+      text-align: center; font-size: 2.8rem; margin-bottom: 4rem; position: relative; font-weight: 700;
+    }
+    .section-title::after {
+      content: ''; width: 90px; height: 5px; background: var(--primary); border-radius: 3px;
+      position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
+    }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .about-img img { width: 100%; transition: transform 0.5s; }
+    .about-img:hover img { transform: scale(1.08); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; }
+    .skill-card {
+      background: white; padding: 2rem; border-radius: 16px; text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.4s ease;
+    }
+    .skill-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .skill-card i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+
+    /* Projects */
+    .project {
+      background: white; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.4s ease; max-width: 900px; margin: 0 auto;
+    }
+    .project:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+    .project-info { padding: 1.8rem; }
+    .tags span {
+      background: #dbeafe; color: var(--primary); padding: 0.4rem 0.9rem; border-radius: 30px;
+      font-size: 0.85rem; margin-right: 0.5rem;
+    }
+
+    /* Experience */
+    .exp-card {
+      background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      max-width: 900px; margin: 0 auto;
+    }
+    .exp-card h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .exp-card h4 { font-size: 1.3rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .exp-card ul { margin: 1.2rem 0; padding-left: 1.5rem; }
+    .exp-card li { margin-bottom: 0.8rem; line-height: 1.7; }
+    .exp-card strong { color: var(--primary); }
+
+    /* Certificates */
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .cert-card {
+      background: white; padding: 2rem; border-radius: 16px; text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.4s;
+    }
+    .cert-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .cert-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 1rem; }
+
+    /* Contact */
+    .contact { background: var(--dark); color: white; text-align: center; }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 3rem; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 80px 0; }
+      .hero h1 { font-size: 2.6rem; }
+      .section-title { font-size: 2.3rem; }
+    }
+    .clickable-cert {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+    .clickable-cert:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(29, 78, 216, 0.25) !important;
+    border: 2px solid var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero" data-aos="fade-down">
+    <div class="container">
+      <div data-aos="zoom-in" data-aos-delay="300">
+        <img src="/assets/8d97b112-1c70-4ad9-8a76-8c298d0ab78c-removebg-preview22.png" alt="Vaishnavi Sahu"/>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="600">
+        <h1>Vaishnavi Sahu</h1>
+        <p>Finance & Taxation Professional | MBA Candidate | Detail-Oriented Analyst</p>
+        <a href="#projects" class="btn">View My Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">About Me</h2>
+      <div class="about-grid">
+        <div class="about-img" data-aos="fade-right" data-aos-delay="200">
+          <img src="/assets/WhatsApp_Image_2025-11-23_at_19.04.28-removebg-preview.png" alt="Vaishnavi Sahu"/>
+        </div>
+        <div data-aos="fade-left" data-aos-delay="400">
+          <p style="font-size:1.15rem; margin-bottom:1.8rem;">
+            I am currently pursuing my <strong>MBA with a focus on Finance</strong>, building a strong foundation in financial strategy, analysis, and corporate decision-making.
+          </p>
+          <p style="margin-bottom:1.8rem;">
+            I have completed internships at a reputed <strong>Chartered Accountancy firm</strong>, where I gained hands-on experience in:
+          </p>
+          <ul style="margin-left:2rem; margin-bottom:1.8rem; line-height:2;">
+            <li>Income Tax profile creation & ITR filing</li>
+            <li>Bookkeeping & account maintenance in Excel</li>
+            <li>Auditor support: checking purchase bills, bank statements, vouching</li>
+            <li>Director DIN KYC compliance</li>
+            <li>Data entry and working on the Income Tax portal</li>
+          </ul>
+          <p style="margin-bottom:1.8rem;">
+            I am passionate about <strong>finance, data accuracy, and structured reporting</strong>. My goal is to build a strong career in <strong>Accounting, Taxation, and Financial Analysis</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Expertise -->
+  <section id="skills" style="background:#f8fafc;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Skills & Expertise</h2>
+
+      <!-- Technical Skills -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 style="text-align:center; font-size:1.8rem; margin-bottom:2rem; color:var(--primary); font-weight:600;">Technical Skills</h3>
+        <div class="skills-grid" style="margin-bottom:4rem;">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-file-invoice-dollar"></i><h3>Income Tax Return Filing</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-book"></i><h3>Bookkeeping</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-table"></i><h3>Excel (Advanced)</h3><p style="font-size:0.9rem;color:var(--gray);margin-top:0.5rem;">Functions, Pivot Tables, VLOOKUP, Charts</p></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-receipt"></i><h3>Zoho Books</h3><p style="font-size:0.9rem;color:var(--gray);margin-top:0.5rem;">Invoices, Expenses, GST Reports, Bank Recon</p></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-search-dollar"></i><h3>Audit Support & Vouching</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="600"><i class="fas fa-laptop"></i><h3>Google Workspace & MS Office</h3></div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div data-aos="fade-up" data-aos-delay="300">
+        <h3 style="text-align:center; font-size:1.8rem; margin-bottom:2rem; color:var(--primary); font-weight:600;">Soft Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-search"></i><h3>Attention to Detail</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-clock"></i><h3>Time Management</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-comments"></i><h3>Professional Communication</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-users"></i><h3>Teamwork & Collaboration</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-puzzle-piece"></i><h3>Problem-Solving</h3></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="600"><i class="fas fa-sync"></i><h3>Adaptability</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Projects & Assignments</h2>
+      <div style="display:flex; justify-content:center;">
+        <div class="project" data-aos="fade-up" data-aos-delay="200">
+          <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:16px 16px 0 0; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
+            <img src="/assets/image.png" alt="Zoho Books Project" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; background:#fff;">
+          </div>
+          <div class="project-info">
+            <h3>AI Accounting: My Zoho Books Experience</h3>
+            <p><strong>Problem:</strong><br>Businesses need fast and accurate systems to manage invoices, customers, vendors, expenses, and financial reports efficiently.</p>
+            <p><strong>Tools Used:</strong><br>Zoho Books • Excel • AI Tools (for content creation & summarization)</p>
+            <p><strong>Result:</strong><br>Created a complete dummy business from scratch, generated professional invoices, tracked expenses, managed customer & vendor lists, performed bank reconciliation, and exported GST-ready reports.</p>
+            <div class="tags">
+              <span>Zoho Books</span><span>Invoice Management</span><span>GST Reports</span><span>Excel Automation</span><span>AI-Assisted Workflow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Experience -->
+  <section id="experience" style="background:#f8fafc;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
+      
+      <div class="exp-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Taxation & Accounting Intern</h3>
+        <h4>Reputed Chartered Accountancy (CA) Firm | June 2024 – August 2024</h4>
+        
+        <p>During my two-month internship at a Chartered Accountant (CA) firm, I gained strong practical exposure to accounting, taxation basics, and audit support. This experience helped me understand how financial work is managed in real business environments. The team was very supportive, and my seniors guided me throughout every task.</p>
+
+        <p><strong>What I Worked On:</strong></p>
+        <ul>
+          <li><strong>Income Tax Work:</strong> Created client profiles on the Income Tax portal and assisted with basic ITR filing.</li>
+          <li><strong>Bookkeeping:</strong> Maintained financial records, updated ledgers, checked invoices, and performed data entry using Excel.</li>
+          <li><strong>Audit Assistance:</strong> Verified purchase bills, bank statements, and supporting documents for audit files under senior supervision.</li>
+        </ul>
+
+        <p><strong>Tools Used:</strong></p>
+        <ul>
+          <li>Excel (data handling, formatting, ledgers)</li>
+          <li>Income Tax Portal</li>
+          <li>Basic CA office tools/software</li>
+        </ul>
+
+        <p><strong>What I Learned:</strong></p>
+        <ul>
+          <li>Practical understanding of ITR filing, bookkeeping, and audit documentation</li>
+          <li>Improved accuracy, financial record-keeping, and document verification skills</li>
+          <li>Developed teamwork, communication, and time-management abilities</li>
+        </ul>
+
+        <p><strong>Overall,</strong> this internship gave me hands-on experience in accounting and auditing, built my confidence, and provided a strong foundation for a future career in finance and taxation.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Certificates & Achievements -->
+<section id="certificates" style="background:#f8fafc;">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Certificates & Achievements</h2>
+    <div class="certs-grid">
+
+      <!-- 1. ISTD – Clickable -->
+      <a href="/assets/ISTD.jpeg" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+        <div class="cert-card clickable-cert" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-trophy"></i>
+          <h3>Indian Society for Training & Development</h3>
+          <p>Certificate of Participation / Achievement</p>
+          <small><strong>15th November 2025</strong> • ISTD</small>
+        </div>
+      </a>
+
+      <!-- 2. Quiz-O-Mania – Clickable -->
+      <a href="/assets/Quiz-O-Mania.jpeg" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+        <div class="cert-card clickable-cert" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-medal"></i>
+          <h3>Quiz-O-Mania Winner</h3>
+          <p>University-level Finance & Accounting Quiz Competition</p>
+          <small><strong>29th September 2025</strong> • DMIMS</small>
+        </div>
+      </a>
+
+      <!-- 3. Innovation Expo 3rd Place – Clickable -->
+      <a href="/assets/3rd place.jpeg" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+        <div class="cert-card clickable-cert" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-award"></i>
+          <h3>3rd Place – Innovation Expo 2025</h3>
+          <p>Secured 3rd position among 50+ teams</p>
+          <small>2025 • DMIMS</small>
+        </div>
+      </a>
+
+      <!-- 4. Volunteer Certificate – Clickable -->
+      <a href="/assets/Volunteer.jpeg" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+        <div class="cert-card clickable-cert" data-aos="fade-up" data-aos-delay="400">
+          <i class="fas fa-hands-helping"></i>
+          <h3>Volunteer – Innovation Expo 2025</h3>
+          <p>Contributed 40+ hours in event coordination</p>
+          <small>2025 • DMIMS</small>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
+    <div data-aos="fade-up" data-aos-delay="300">
+      <p style="font-size:1.3rem; max-width:700px; margin:2rem auto;">
+        I'm open to internships, entry-level roles, or opportunities in Accounting, Taxation, and Financial Analysis.
+      </p>
+      <p style="font-size:1.2rem; margin:2rem 0;">
+        <strong>Email:</strong> 
+        <a href="mailto:sahujagdishvaishnavi@gmail.com" style="color:#93c5fd; font-weight:600;">
+          sahujagdishvaishnavi@gmail.com
+        </a>
+        <br><br>
+        <strong>LinkedIn:</strong> 
+        <a href="https://www.linkedin.com/in/vaishnavi-sahu04" target="_blank">
+          linkedin.com/in/vaishnavi-sahu04
+        </a>
+      </p>
+
+      <!-- Resume Buttons -->
+      <div style="margin:2rem 0;">
+        <a href="/assets/Vaishnavi Sahu Resume New.pdf" target="_blank" rel="noopener" 
+           class="btn" style="background:rgba(255,255,255,0.15); border:2px solid white; color:white; margin:0.5rem; padding:0.9rem 1.8rem;">
+          Preview Resume
+        </a>
+        <a href="/assets/Vaishnavi Sahu Resume New.pdf" download 
+           class="btn" style="background:white; color:var(--primary); margin:0.5rem; padding:0.9rem 1.8rem;">
+          Download Resume
+        </a>
+      </div>
+
+      <!-- Social Icons – LinkedIn + Gmail -->
+      <div style="margin-top:5rem; display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;">
+        <a href="https://www.linkedin.com/in/vaishnavi-sahu04" 
+           target="_blank" 
+           style="color:#0A66C2; font-size:3rem; transition:transform 0.3s;">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        
+        <a href="mailto:sahujagdishvaishnavi@gmail.com" 
+           style="color:#EA4335; font-size:3rem; transition:transform 0.3s;">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <p style="margin-top:2rem; font-size:0.9rem; opacity:0.8;">
+        Feel free to reach out — I’d love to connect!
+      </p>
+    </div>
+  </div>
+</section>
+
+  <footer style="background:#0f172a; color:#94a3b8; text-align:center; padding:2rem 0;">
+    <p>© 2025 Vaishnavi Sahu. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 1000, easing: 'ease-out-cubic' });
+  </script>
+</body>
+</html>
